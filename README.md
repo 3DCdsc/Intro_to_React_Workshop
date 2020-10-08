@@ -25,3 +25,7 @@ Basic knowledge on (Be it on python or what not) :
        - Run the following command:
         - npx create-react-app 3dc-react-workshop
           - This will create a templated react app under the name of "3dc-react-workshop"
+- ## Code Editor
+  - Any code editor will work fine.
+    - Demo will be using visual studio code
+    - https://code.visualstudio.com/download
