@@ -21,10 +21,10 @@ Basic knowledge on (Be it on python or what not) :
   - I will go through the set up process at the start too but please try downloading it on your own first.
   - Steps are as follows:
     1. Open your terminal (macOS) or command prompt (windows)
-    2. cd to your desktop or any folder you prefer.
+    2. cd to your desktop or any folder you prefer by using " cd ./desktop "
        - Run the following command:
         - npx create-react-app 3dc-react-workshop
-          - This will create a templated react app under the name of "3dc-react-workshop"
+          - This will create a templated react app under the name of "3dc-react-workshop" in your desktop folder.
 - ## Code Editor
   - Any code editor will work fine.
     - Demo will be using visual studio code
