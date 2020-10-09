@@ -16,14 +16,14 @@ Basic knowledge on (Be it on python or what not) :
   - To check if it is installed properly
     - Open your terminal (macOS) or command prompt (windows)
     - Run: npm --version or node --version
-    - Version 14.12.0 or any later version will work fine
+    - npm version 6.14.8 or node version 14.12.0 respectively. (Any later version will work fine as well)
 - ## Create-React-App
   - I will go through the set up process at the start too but please try downloading it on your own first.
   - Steps are as follows:
     1. Open your terminal (macOS) or command prompt (windows)
     2. cd to your desktop or any folder you prefer by using " cd ./desktop "
        - Run the following command:
-        - npx create-react-app 3dc-react-workshop
+        - npx create-react-app 3dc-react-workshop    (This will take awhile)
           - This will create a templated react app under the name of "3dc-react-workshop" in your desktop folder.
 - ## Code Editor
   - Any code editor will work fine.
