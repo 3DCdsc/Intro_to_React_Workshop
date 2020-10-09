@@ -1,0 +1,27 @@
+body{
+    padding:0;
+    margin: 0;
+}
+.App{
+    width: 100vw;
+    height: 10vh;
+    text-align: center;
+    margin: 10px;
+}
+
+.flex-row-spacearound-center{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+}
+.textInput{
+    width: 80vw;
+}
+
+.todo-item{
+    width:100vw;
+    height: 10vh;
+    text-align: center;
+}
