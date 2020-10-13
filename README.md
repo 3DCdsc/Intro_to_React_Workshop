@@ -1,5 +1,5 @@
 # Intro to web-development with React Workshop
-The workshop is a one off workshop that aims to introduce the ReactJS framework which will include segments of javascript and CSS flexbox refreshers/lesson.
+The workshop is a one off workshop that aims to introduce Web Development and the ReactJS framework which will include segments of javascript and CSS flexbox refreshers/lesson.
 
 # Pre-requisite
 Basic knowledge on (Be it on python or what not) :
