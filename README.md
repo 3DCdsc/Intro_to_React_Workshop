@@ -43,6 +43,7 @@ Basic knowledge on (Be it on python or what not) :
     4. [Functions](#python-vs-javascript/functions)
     5. [Loops](#python-vs-javascript/loops)
 2. [HTML & CSS](#HTML-CSS)
+3. [React](#react)
 
 <a name="how-web-works"></a>
 ## How the Web Works
@@ -227,3 +228,12 @@ In HTML code, it will look like
     <div> list 3 </div>
   </div>
 ```
+<br/>
+Take note that each html tag has an opening and a closing tag. Eg. `<div></div>`
+<br/>
+A self closing tag can also be used. Eg. `<input/>`
+<br/>
+Each tag has its own attributes too. Eg. `<button onClick="whenButtonClickRunThisFunction()" />`. This button has an event handler function name "whenButtonClickRunThisFunction" that runs everytime the button is clicked.
+
+<a name="react"></a>
+## React
