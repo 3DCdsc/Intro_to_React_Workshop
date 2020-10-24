@@ -38,7 +38,7 @@ Basic knowledge on (Be it on python or what not) :
 <a name="how-web-works"></a>
 ## How the Web Works
 ### Overview of how data is transfered
-<img src="./readmeAssets/howWebWork1.png" width="400"/>
+<img src="./readmeAssets/howWebWork1.png" width="400" align="center"/>
 The web works by sending out Hypertext Transfer Protocol (HTTP) Requests and getting Responses in return.
 You can view this as your web browser sending out an envelope as a HTTP request to a server asking for data in return. The server then sends out another envelope with the requested data as a HTTP response.
 
