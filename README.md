@@ -214,6 +214,7 @@ HTML and CSS work hand in hand to display and beautify a webpage respectively.
 HTML can be thought of as containers. HTML start and end off with tags enclosed in arrow brackets.
 <br/>
 <img src="./readmeAssets/html.png" width="500"/>
+<br/>
 For example, we want to replicate the image above, we would then split each individual component into a container.
 <br/>
 In HTML code, it will look like
