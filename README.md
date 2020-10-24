@@ -37,7 +37,10 @@ Basic knowledge on (Be it on python or what not) :
     2. [Resolving Domain Names](#how-web-works/resolving-domain-names)
     3. [API Endpoint](#how-web-works/api)
 2. [Javascript vs Python refresher](#python-vs-javascript)
-
+    1. [Variables](#python-vs-javascript/variables)
+    2. [Lists / Arrays](#python-vs-javascript/list-array)
+    3. [Object / Dictionary](#python-vs-javascript/object-dic)
+    4. [Functions](#python-vs-javascript/functions)
 
 <a name="how-web-works"></a>
 ## How the Web Works
@@ -74,6 +77,7 @@ For example, we load the SUTD webpage and it wants to show an updated number of 
 <a name="python-vs-javascript"></a>
 ## Javascript vs Python refresher
 
+<a name="python-vs-javascript/variables"></a>
 ### Defining Variables
 Defining a variable is similiar to how variable works in mathematics.
 <br/>
@@ -92,3 +96,80 @@ Notice that javascript has 2 ways to define a variable.
 `const` creates a constant variable which means the value you assign to it will not change.
 <br/>
 `let` creates a variable in which its value will be changing down the line.
+
+<a name="python-vs-javascript/list-array"></a>
+### Lists / Arrays
+Defining a list or array in python vs javascript
+<br/>
+For illustration purposes, we will be creating an array named thisIsAnArray and assign an empty array to it.
+```python
+# PYTHON
+thisIsAnArray = [] #creates a variable named thisIsAnArray and assigns an empty array to it
+```
+```js
+// JAVASCRIPT
+const thisIsAnArray = [] //creates a constant variable named thisIsAnArray and assigns an empty array to it
+let thisIsAnArray = [] //creates a variable named thisIsAnArray and assigns an empty array to it
+```
+
+<a name="python-vs-javascript/object-dic"></a>
+### Lists / Arrays
+Defining a list or array in python vs javascript
+<br/>
+For illustration purposes, we will be creating an object named thisIsAnObject and assign a key value pair.
+```python
+# PYTHON
+thisIsAnArray = {
+  key: "value"
+} #creates a variable named thisIsAnArray and assigns an object to it.
+```
+```js
+// JAVASCRIPT
+const thisIsAnArray = {
+  key: "value"
+} //creates a constant variable named thisIsAnArray and assigns an object to it.
+let thisIsAnArray = {
+  key: "value"
+} //creates a variable named thisIsAnArray and assigns an object to it.
+
+<a name="python-vs-javascript/functions"></a>
+### Functions
+Defining a function in python vs javascript
+<br/>
+For illustration purposes, we will be creating an function named thisIsAFunction and make the function take in 1 paramater named paramOne return hello world.
+```python
+# PYTHON
+def thisIsAFunction ( paramOne ):
+  return( "hello world" )
+```
+```js
+// JAVASCRIPT
+
+// Function Expression
+// Function is loaded when the line is reached
+const thisIsAFunction = ( paramOne ) => {
+  return( "hello world" )
+}
+
+const thisIsAFunction = ( paramOne ) => "hello world"
+
+const thisIsAFunction = function( paramOne ){
+  return("hello world)
+}
+
+// Function Declaration
+// Function Declaration are hoisted to the top of the code.
+// Meaning the funtion is loaded before anything else
+function thisIsAFunction( paramOne ){
+  return( "hello world" )
+}
+
+// To demostrate the differences
+helloWorldFunction()  // This will have an error
+const helloWorldFunction = () => "hello world"
+
+helloWorldFunction()  // This will work
+function helloWorldFunction( ){
+  return( "hello world" )
+}
+```
