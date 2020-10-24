@@ -42,8 +42,18 @@ Basic knowledge on (Be it on python or what not) :
     3. [Object / Dictionary](#python-vs-javascript/object-dic)
     4. [Functions](#python-vs-javascript/functions)
     5. [Loops](#python-vs-javascript/loops)
-2. [HTML & CSS](#HTML-CSS)
-3. [React](#react)
+3. [HTML & CSS](#HTML-CSS)
+4. [React](#react)
+    1. [Components](#react/compoents)
+    2. [State](#react/state)
+5. [CSS Flexbox](#flexbox)
+6. [Breakdown of Demo](#demo)
+    1. [Cleaning up create-react-app](#demo/cleanup)
+    2. [Breaking down structure of html](#demo/structure)
+    3. [Setting up State](#demo/state)
+    4. [Event Handlers](#demo/event-handler)
+    5. [Seperating Components](#demo/seperate-component)
+6. [Exploration](#explore)
 
 <a name="how-web-works"></a>
 ## How the Web Works
