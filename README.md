@@ -185,11 +185,14 @@ Creating a loop to reiterate over an array in python vs javascript
 For illustration purposes, we will reiterate over an array named oneToTen which contains digits 1 to 10.
 ```python
 oneToTen = [ 1,2,3,4,5,6,7,8,9,10 ]
+
 for eachElement in oneToTen:
   print(eachElement)
 // prints 1 2 3 4 ...
 ```
 ```js
+const oneToTen = [ 1,2,3,4,5,6,7,8,9,10 ]
+
 oneToTen.forEach( eachElement => console.log(eachElement) )
 // prints 1 2 3 4 ...
 
