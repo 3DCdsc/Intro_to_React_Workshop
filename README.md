@@ -228,18 +228,15 @@ In HTML code, it will look like
     <div> list 3 </div>
   </div>
 ```
-<br/>
-Take note that each html tag has an opening and a closing tag. Eg 
+Take note that each html tag has an opening and a closing tag. Eg
 ```html
 <div></div>
 ```
-<br/>
-A self closing tag can also be used. Eg. 
+A self closing tag can also be used. Eg
 ```html
 <input/>
 ```
-<br/>
-Each tag has its own attributes too. Eg. 
+Each tag has its own attributes too. Eg
 ```html
 <button onClick="whenButtonClickRunThisFunction()" />.
 ``` 
