@@ -37,4 +37,4 @@ Basic knowledge on (Be it on python or what not) :
 
 <a name="how-web-works"></a>
 ## How the Web Works
-![image info](./readmeAssets/howWebWork1.png)
+![image info](./readmeAssets/howWebWork1.png =300x150)
