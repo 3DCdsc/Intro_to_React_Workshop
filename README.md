@@ -167,10 +167,11 @@ function thisIsAFunction( paramOne ){
 ```
 ```js
 // To demostrate the differences
-helloWorldFunction()  // This will have an error
+// Take note that console.log acts just like python print function.
+console.log( helloWorldFunction() )  // This will have an error
 const helloWorldFunction = () => "hello world"
 
-helloWorldFunction()  // This will work
+console.log( elloWorldFunction() )  // This will work
 function helloWorldFunction( ){
   return( "hello world" )
 }
