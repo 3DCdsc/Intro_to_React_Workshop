@@ -229,9 +229,9 @@ In HTML code, it will look like
   </div>
 ```
 <br/>
-Take note that each html tag has an opening and a closing tag. Eg. `<div></div>`
+Take note that each html tag has an opening and a closing tag. Eg `<div></div>`
 <br/>
-A self closing tag can also be used. Eg. `<input/>`
+A self closing tag can also be used. Eg `<input/>`
 <br/>
 Each tag has its own attributes too. Eg. `<button onClick="whenButtonClickRunThisFunction()" />`. This button has an event handler function name "whenButtonClickRunThisFunction" that runs everytime the button is clicked.
 
