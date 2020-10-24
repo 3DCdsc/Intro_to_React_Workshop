@@ -87,7 +87,6 @@ school = "SUTD" #creates a variable named school and assign a string "SUTD" to i
 const school = "SUTD" //creates a constant variable named school
 let school = "SUTD" //creates a variable named school and assign a string "SUTD" to it
 ```
-<br/>
 Notice that javascript has 2 ways to define a variable. 
 <br/>
 `const` creates a constant variable which means the value you assign to it will not change.
