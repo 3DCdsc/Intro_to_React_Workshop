@@ -33,8 +33,8 @@ Basic knowledge on (Be it on python or what not) :
 # Lecture Notes
 ## Table of contents
 1. [How the web works](#how-web-works)
-  1. [Overview of how data is transfered](#how-web-works/data-transfer)
-  2. [Resolving Domain Names](#how-web-works/resolving-domain-names)
+    1. [Overview of how data is transfered](#how-web-works/data-transfer)
+    2. [Resolving Domain Names](#how-web-works/resolving-domain-names)
 
 
 <a name="how-web-works"></a>
