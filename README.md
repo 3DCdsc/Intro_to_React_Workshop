@@ -40,7 +40,7 @@ Basic knowledge on (Be it on python or what not) :
 ### Overview of how data is transfered
 <img src="./readmeAssets/howWebWork1.png" width="400"/>
 The web works by sending out Hypertext Transfer Protocol (HTTP) Requests and getting Responses in return.
-<br/>
+<br/><br/>
 You can view this as your web browser sending out an envelope as a HTTP request to a server asking for data in return. The server then sends out another envelope with the requested data as a HTTP response.
 
 ### Resolving Domain Names
@@ -48,5 +48,5 @@ You can view this as your web browser sending out an envelope as a HTTP request 
 Whenever you type in a website link, it is also called a Domain Name.
 A domain name has no information on which server it should get the webpage from.
 Therefore, we have a Domain Name System server that caches (temporary stores) which domain name links to which Internet Protocol (IP) Address. An IP Address acts like your house address but for servers.  
-<br/>
+<br/><br/>
 So in summary, when you type in a domain name, your browser sends out a HTTP Request to a DNS Server to get the IP Address of the server that contains the webpage. With the correct IP Address, your browser then sends another HTTP Request to that server for the webpage.
