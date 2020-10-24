@@ -192,6 +192,7 @@ for eachElement in oneToTen:
 ```js
 oneToTen.forEach( eachElement => console.log(eachElement) )
 // prints 1 2 3 4 ...
+
 // Another method to reiterate over an array is
 oneToTen.map( (eachElement, eachIndex)=> console.log(eachElement, eachIndex) )
 // .map gives acces to each element's index
