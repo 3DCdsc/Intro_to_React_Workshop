@@ -113,7 +113,7 @@ let thisIsAnArray = [] //creates a variable named thisIsAnArray and assigns an e
 ```
 
 <a name="python-vs-javascript/object-dic"></a>
-### Lists / Arrays
+### Object / Dictionary
 Defining a list or array in python vs javascript
 <br/>
 For illustration purposes, we will be creating an object named thisIsAnObject and assign a key value pair.
@@ -164,7 +164,8 @@ const thisIsAFunction = function( paramOne ){
 function thisIsAFunction( paramOne ){
   return( "hello world" )
 }
-
+```
+```js
 // To demostrate the differences
 helloWorldFunction()  // This will have an error
 const helloWorldFunction = () => "hello world"
