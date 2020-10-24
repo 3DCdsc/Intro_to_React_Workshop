@@ -231,9 +231,24 @@ In HTML code, it will look like
 <br/>
 Take note that each html tag has an opening and a closing tag. Eg `<div></div>`
 <br/>
-A self closing tag can also be used. Eg `<input/>`
+A self closing tag can also be used. Eg. <input/>
 <br/>
-Each tag has its own attributes too. Eg. `<button onClick="whenButtonClickRunThisFunction()" />`. This button has an event handler function name "whenButtonClickRunThisFunction" that runs everytime the button is clicked.
+Each tag has its own attributes too. Eg. <button onClick="whenButtonClickRunThisFunction()" />. This button has an event handler function name "whenButtonClickRunThisFunction" that runs everytime the button is clicked.
+
+### CSS
+CSS can be thought of as a bunch of properties you want each HTML container to have.
+```html
+  <div class="redBoxClass" >
+    This is a Red Box
+  </div>
+```
+First we assign a class to the HTML tag.
+```css
+.redBoxClass{
+  background-color: red
+}
+```
+CSS then assigns a property to the following class.
 
 <a name="react"></a>
 ## React
