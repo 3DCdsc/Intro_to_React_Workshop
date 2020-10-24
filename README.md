@@ -36,5 +36,5 @@ Basic knowledge on (Be it on python or what not) :
 
 
 <a name="how-web-works"></a>
-## This is the introduction 
-test
+## How the Web Works
+![image info](./readmeAssets/howWebWork.png)
