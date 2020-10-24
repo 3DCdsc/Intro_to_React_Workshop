@@ -42,6 +42,7 @@ Basic knowledge on (Be it on python or what not) :
     3. [Object / Dictionary](#python-vs-javascript/object-dic)
     4. [Functions](#python-vs-javascript/functions)
     5. [Loops](#python-vs-javascript/loops)
+2. [HTML & CSS](#HTML-CSS)
 
 <a name="how-web-works"></a>
 ## How the Web Works
@@ -199,4 +200,29 @@ oneToTen.forEach( eachElement => console.log(eachElement) )
 // Another method to reiterate over an array is
 oneToTen.map( (eachElement, eachIndex)=> console.log(eachElement, eachIndex) )
 // .map gives access to each element's index
+```
+
+<a name="HTML-CSS"></a>
+## Hyper Text Markup Language & Cascading Style Sheets
+Hyper Text Markup Language (HTML), thelanguage of the document that the browser reads for content to display.
+<br/>
+Cascading Style Sheets (CSS), the language used by the browser to decide the visual look of the content.
+<br/><br/>
+HTML and CSS work hand in hand to display and beautify a webpage respectively.
+
+### HTML
+HTML can be thought of as containers. HTML start and end off with tags enclosed in arrow brackets.
+<br/>
+<img src="./readmeAssets/html.png" width="500"/>
+For example, we want to replicate the image above, we would then split each individual component into a container.
+<br/>
+In HTML code, it will look like
+```html
+  <div>
+    <input/>
+    <button> Save <button/>
+    <div> list 1 </div>
+    <div> list 2 </div>
+    <div> list 3 </div>
+  </div>
 ```
