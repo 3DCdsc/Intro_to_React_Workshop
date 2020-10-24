@@ -31,18 +31,23 @@ Basic knowledge on (Be it on python or what not) :
     - https://code.visualstudio.com/download
 
 # Lecture Notes
-# Table of contents
+## Table of contents
 1. [How the web works](#how-web-works)
+  1.1 [Overview of how data is transfered](#how-web-works/data-transfer)
+  1.2 [Resolving Domain Names](#how-web-works/resolving-domain-names)
 
 
 <a name="how-web-works"></a>
 ## How the Web Works
+
+<a name="how-web-works/data-transfer"></a>
 ### Overview of how data is transfered
 <img src="./readmeAssets/howWebWork1.png" width="400"/>
 The web works by sending out Hypertext Transfer Protocol (HTTP) Requests and getting Responses in return.
 <br/><br/>
 You can view this as your web browser sending out an envelope as a HTTP request to a server asking for data in return. The server then sends out another envelope with the requested data as a HTTP response.
 
+<a name="how-web-works/resolving-domain-names"></a>
 ### Resolving Domain Names
 <img src="./readmeAssets/resolveDNS.png" width="400"/>
 Whenever you type in a website link, it is also called a Domain Name.
@@ -50,3 +55,6 @@ A domain name has no information on which server it should get the webpage from.
 Therefore, we have a Domain Name System server that caches (temporary stores) which domain name links to which Internet Protocol (IP) Address. An IP Address acts like your house address but for servers.  
 <br/><br/>
 So in summary, when you type in a domain name, your browser sends out a HTTP Request to a DNS Server to get the IP Address of the server that contains the webpage. With the correct IP Address, your browser then sends another HTTP Request to that server for the webpage.
+
+### Application Programming Interface (API) Endpoint
+<img src="./readmeAssets/api.png" width="400"/>
