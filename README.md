@@ -131,6 +131,7 @@ const thisIsAnArray = {
 let thisIsAnArray = {
   key: "value"
 } //creates a variable named thisIsAnArray and assigns an object to it.
+```
 
 <a name="python-vs-javascript/functions"></a>
 ### Functions
