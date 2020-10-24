@@ -41,6 +41,7 @@ Basic knowledge on (Be it on python or what not) :
     2. [Lists / Arrays](#python-vs-javascript/list-array)
     3. [Object / Dictionary](#python-vs-javascript/object-dic)
     4. [Functions](#python-vs-javascript/functions)
+    5. [Loops](#python-vs-javascript/loops)
 
 <a name="how-web-works"></a>
 ## How the Web Works
@@ -171,8 +172,27 @@ function thisIsAFunction( paramOne ){
 console.log( helloWorldFunction() )  // This will have an error
 const helloWorldFunction = () => "hello world"
 
-console.log( elloWorldFunction() )  // This will work
+console.log( helloWorldFunction() )  // This will work
 function helloWorldFunction( ){
   return( "hello world" )
 }
+```
+
+<a name="python-vs-javascript/loops"></a>
+### Loops
+Creating a loop to reiterate over an array in python vs javascript
+<br/>
+For illustration purposes, we will reiterate over an array named oneToTen which contains digits 1 to 10.
+```python
+oneToTen = [ 1,2,3,4,5,6,7,8,9,10 ]
+for eachElement in oneToTen:
+  print(eachElement)
+// prints 1 2 3 4 ...
+```
+```js
+oneToTen.forEach( eachElement => console.log(eachElement) )
+// prints 1 2 3 4 ...
+// Another method to reiterate over an array is
+oneToTen.map( (eachElement, eachIndex)=> console.log(eachElement, eachIndex) )
+// .map gives acces to each element's index
 ```
