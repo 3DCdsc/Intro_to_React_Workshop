@@ -231,7 +231,7 @@ In HTML code, it will look like
 <br/>
 Take note that each html tag has an opening and a closing tag. Eg 
 ```html
-`<div></div>`
+<div></div>
 ```
 <br/>
 A self closing tag can also be used. Eg. 
