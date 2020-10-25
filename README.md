@@ -480,7 +480,7 @@ Opening the file App.js, delete the following lines to change as per the image.
 <br/>
 Opening the file index.js, delete the following lines to change as per the image.
 <img src="./readmeAssets/cleanindex1.png" width="600"/>
-<img src="./readmeAssets/cleanindex2.png" width="600"/>
+<img src="./readmeAssets/cleanindex2.png" width="1000"/>
 <br/><br/>
 Lets run the application. Go back to your terminal and change directory into the todo-app-demo by running `cd ./todo-app-demo`
 <br/>
