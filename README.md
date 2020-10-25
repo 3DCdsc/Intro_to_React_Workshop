@@ -613,6 +613,7 @@ Next, we need a function to then delete the correct todo task and then update `t
 <br/><br/>
 Lets code our the functions
 <br/>
+
 ```js
 const displayWhatIType = ( e ) => {
   // Notice how this takes in a e parameter.
