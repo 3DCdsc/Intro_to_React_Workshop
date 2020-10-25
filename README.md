@@ -56,7 +56,8 @@ Basic knowledge on (Be it on python or what not) :
     2. [Breaking down structure of html](#demo/structure)
     3. [Setting up State](#demo/state)
     4. [Event Handlers](#demo/event-handler)
-    5. [Seperating Components](#demo/seperate-component)
+    5. [Setting up CSS](#demo/css)
+    6. [Seperating Components](#demo/seperate-component)
 6. [Exploration](#explore)
 
 <a name="how-web-works"></a>
@@ -615,6 +616,11 @@ const myComponent = (props) => {
   )
 }
 ```
+<br/><br/>
+Putting everything into our app.js code as such
+<br/>
+<img src="./readmeAssets/appstate.png" width="600"/>
+<br/>
 
 <a name="demo/event-handler)"></a>
 ## Event Handlers
@@ -688,7 +694,7 @@ Going back to our react app, we need to add these event handlers into our app.js
 <br/><br/>
 After adding the function to your app.js, it should look like
 <br/>
-<img src="./readmeAssets/eventhandler.png" width="600"/>
+<img src="./readmeAssets/eventhandler.png" width="1000"/>
 <br/>
 I would like to bring the focus now to the event handlers on the JSX code
 <br/>
@@ -720,3 +726,7 @@ I would like to bring the focus now to the event handlers on the JSX code
 </div>
     </div>
 ```
+
+<a name="demo/css)"></a>
+## Setting up CSS
+
