@@ -223,6 +223,14 @@ oneToTen.forEach( eachElement => console.log(eachElement) )
 
 // Another method to reiterate over an array is
 oneToTen.map( (eachElement, eachIndex)=> console.log(eachElement, eachIndex) )
+
+/*
+  Take note that .map iterates over the array and returns a new array with the same length.
+  .forEach only iterates over the array and does not return anything.
+*/
+//For example
+const newArray = oneToTen.map(x => x * x)
+console.log(newArray) // this will print a new array named newArray in which each digit is the square of the original array.
 ```
 
 <a name="HTML-CSS"></a>
