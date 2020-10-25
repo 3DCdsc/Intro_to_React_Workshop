@@ -157,13 +157,13 @@ def thisIsAFunction ( paramOne ):
   return( "hello world" )
 ```
 ```js
-// JAVASCRIPT
-// There are 2 types of functions. Function expressions and function declarations.
+// JAVASCRIPT : There are 2 types of functions. Function expressions and function declarations.
 
 /*
 ----Function Expression----
 Function is loaded when the line is reached
 */
+
 // The below function is called a Arrow Function (I guess because of the => )
 const thisIsAFunction = ( paramOne ) => {
   return( "hello world" )
@@ -175,11 +175,13 @@ const thisIsAFunction = function( paramOne ){
   return("hello world)
 }
 
+
 /* 
 ----Function Declaration----
 Function Declaration are hoisted to the top of the code.
 Meaning the funtion is loaded before anything else
 */
+
 function thisIsAFunction( paramOne ){
   return( "hello world" )
 }
@@ -275,3 +277,67 @@ CSS then assigns a property to the following class.
 
 <a name="react"></a>
 ## React
+<a name="react/components"></a>
+### Components
+The react library are made out of components. Just like how HTML is made up of multiple containters, react uses the same container concept but calls it components insetad.
+<img src="./readmeAssets/reactComponent.png" width="400"/>
+A React Component is a Javascript Function that takes in an object called `props` and return `JSX`.
+<br/>
+You can view props as properties being pass into a component, just like how you pass parameters into a function.
+<br/>
+You can view JSX as HTML but used as an extension of Javascript.
+<br/>
+An example of a component
+<br/>
+```js
+// We first create a function that takes in props as a parameter and return JSX.
+const thisIsAComponent = ( props ) => {
+  return(
+    <div> 
+      This is like HTML but it is actually JSX.
+    </div>
+  )
+}
+// If we want to write javascript when we are in JSX, we need to write it in curly braces
+const thisIsAComponent = ( props ) => {
+  return(
+    <div> 
+      This is like HTML but it is actually JSX.
+      { 
+        console.log(" If you want to add Javascript code in JSX, you need to wrap it in curly braces {} ")
+      }
+    </div>
+  )
+}
+```
+
+<a name="react/state"></a>
+### State
+A state is like a temporary storage on your browser. It can be viewed like a temporary database.
+<br>/<br/>
+React uses a function called `useState` to intialize a state. `useState` is one of the many functions called react hooks.
+<br/>
+useState function takes in the initial state of the state. It returns an array containing the current state and a function to update the state.
+For example, we want inialize a state that initially have a value of `"Hello World".`
+```js
+const [ currentValueOfState , functionToUpdateState ] = useState( "Hello World" )
+// As shown, passing "Hello World" to useState assigns "Hello World" to currentValueOfState.
+// In which to update currentValueOfState, we need to use functionToUpdateState.
+```
+To illustrate what is happening
+```js
+const [ currentValueOfState , functionToUpdateState ] = useState( "Hello World" )
+
+console.log( currentValueOfState ) // this will print "Hello World"
+
+functionToUpdateState("SUTD")
+
+console.log( currentValueOfState ) // this will print "SUTD"
+```
+
+
+<a name="flexbox"></a>
+## CSS Flexbox
+CSS Flexbox are useful bunch of CSS properties that allow webpages to be responsive. Meaning, if the browser changes width or height, the content will adapt accordingly.
+<br/><br/>
+[link to css flexbox documentation!](https://www.css-tricks.com/snippets/css/a-guide-to-flexbox/)
