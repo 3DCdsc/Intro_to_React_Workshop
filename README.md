@@ -606,16 +606,14 @@ const myComponent = (props) => {
         <input/>
         <button>Save</button>
       </div>
-      <div> 
-        {
-          todoList.map( element =>
-            <div>
-              <div> {element.content} </div>
-              <button/>
-            </div>
-          )
-        }
-      </div>
+      {
+        todoList.map( element =>
+          <div>
+            <div> {element.content} </div>
+            <button/>
+          </div>
+        )
+      }
     </div>
   )
 }
@@ -712,7 +710,7 @@ I would like to bring the focus now to the event handlers on the JSX code
   </div>
   <div> 
     {
-      todoList.forEach( element =>
+      todoList.map( element =>
         <div>
           <div> {element.content} </div>
           <button onClick={()=>deleteThisTodo(element.id)} />
@@ -743,16 +741,14 @@ We first need give class names to our JSX elements.
         <input onChange={displayWhatIType} value={inputValue} />
         <button onClick={saveWhatIType} >Save</button>
       </div>
-      <div className="thisIsACol"> 
-        {
-          todoList.forEach( (element) =>
-            <div className="thisIsARow">
-              <div> {element.content} </div>
-              <button onClick={()=>deleteThisTodo(element.id)} />
-            </div>
-          )
-        }
-      </div>
+      {
+        todoList.map( (element) =>
+          <div className="thisIsARow">
+            <div> {element.content} </div>
+            <button onClick={()=>deleteThisTodo(element.id)} />
+          </div>
+        )
+      }
     </div>
   );
 ```
