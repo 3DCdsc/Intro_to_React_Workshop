@@ -603,11 +603,16 @@ let inputValue = "this variable will contain whatever the user type"
 // But for the todoList, should we just store a bunch of strings in an array. 
 // Something like,
 let todoList = [ "todo1" , "todo2", "todo3" ]
-/* Then when we delete it, we can just compare if the text of the todo reminder is the same as the one I want to delete then we can delete it */
-/* This will work but will introduce an issue. What if 2 todo reminders have the same text? Which one to delete? */
+/* 
+  Then when we delete it, we can just compare if the text of the todo reminder is the same as the one the user selects
 
-//Therefore we need a unique identifier for each todo reminder.
-//Something like,
+  This will work but will introduce an issue. 
+  What if 2 todo reminders have the same text? 
+  Which one to delete? 
+*/
+
+// Therefore we need a unique identifier for each todo reminder.
+// Something like,
 let todolist = [
   {
     id: "SOME KIND OF UNIQUE INDENTIFIER",
