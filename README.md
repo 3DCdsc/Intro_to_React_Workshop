@@ -441,6 +441,7 @@ For example
 
 <a name="demo"></a>
 ## Demo
+
 <a name="demo/cleanup"></a>
 ## Cleaning up create react app
 First we need to use the create-react-app package to initialize a templated app for us. To do this, open your terminal (mac) or command prompt (windows).
@@ -491,5 +492,165 @@ To run the application, run `npm run start`.
 Your browser should open and look like this.
 <br/>
 <img src="./readmeAssets/apprun.png" width="600"/>
+<br/>
 
 
+<a name="demo/structure"></a>
+## Breaking down structure of html
+Let's first see how we can picture how the app will look like then break it down into html/jsx code.
+<br/>
+<img src="./readmeAssets/demo.png" width="600"/>
+<br/>
+The image shows how the app will look like. We have 3 main big containers. 
+<br/>
+1 container to contain the entire app.
+<br/>
+1 inner container that should behave like a row for the input and save componenets.
+<br/>
+1 inner container that should behave like a column for the rows of reminder row components.
+<br/>
+In HTML code
+<br/>
+```html
+<div>
+  <div> For the input and save button </div>
+  <div> For the rows of reminder components </div>
+</div>
+```
+<br/>
+In React
+<br/>
+```js
+const myComponent = (props) => {
+  return(
+    <div>
+      <div> For the input and save button </div>
+      <div> For the rows of reminder components </div>
+    </div>
+  )
+}
+```
+<br/>
+We then can further break down into the individual input and save button. Followed by the reminder and delete button.
+<br/>
+In HTML code
+<br/>
+```html
+<div>
+  <div> 
+    <input/>
+    <button>Save</button>
+  </div>
+  <div> 
+    <div> Reminder content </div>
+    <button/>
+  </div>
+</div>
+```
+<br/>
+In React
+<br/>
+```js
+const myComponent = (props) => {
+  return(
+    <div>
+      <div> 
+        <input/>
+        <button>Save</button>
+      </div>
+      <div> 
+        <div> Reminder content </div>
+        <button/>
+      </div>
+    </div>
+  )
+}
+<br/>
+To add this into our app, let's open the app.js file and add in the react code.
+<br/>
+<img src="./readmeAssets/htmlbreakdown.png" width="600"/>
+
+
+<a name="demo/state"></a>
+## Setting up State
+Let's breakdown how we should set up the state.
+<br/>
+We need to store 2 things.
+<br/>
+We need store the characters in which our user will type and then store those characters into a list or array.
+<br/>
+Therefore, we should intialise our state like
+<br/>
+```js
+const [inputValue , setInputValue] = useState("") //initilize inputValue as an empty string
+const [todoList , setTodoList] = useState([]) //initilize todoList as an empty array
+```
+<br/>
+So whenever, we type something, it gets stored into inputValue and then when we save, it gets stored into todoList.
+
+<a name="demo/event-handler)"></a>
+## Event Handlers
+Now that we have the state and base structure of our React App. We need javascript functions to interact with our state.
+<br/>
+Let's breakdown what kind of functions we need
+<br/>
+We need 1 function to take the characters our user type and update the `inputValue` value.
+<br/>
+Whenever our user click save, we need 1 functon to then save the `inputValue` characters into our  `todoList` array. Don't forget we also need to empty out `inputValue` characters so that the user can start typing on a clean input box again. Another thing to take note is that when storing the texts, we need a unique identifier so that we know which task to delete even if the 2 tasks have the same text content. For the purposes of this demo, we will use javascript's build in random function `math.random.toString().replace(“0.”,””)`. However do not use this in production, please use a proper uuid library like [uuid](https://www.npmjs.com/package/uuid).
+<br/>
+So our `todoList` state will store text like this
+<br/>
+```js
+todoList = [
+  {
+    id: "RANDOM STRING TO INDENTIFY THE TASK",
+    content: "WHATEVER THE USER TYPED AND SAVED"
+  }
+]
+```
+<br/>
+Next, we need a function to then delete the correct todo task and then update `todoList` with the updated todo list.
+<br/><br/>
+Lets code our the functions
+<br/>
+```js
+const displayWhatIType = ( e ) => {
+  // Notice how this takes in a e parameter.
+  // It is actually the event object which your browser automatically passes into the function.
+  setInputValue( e.target.value )
+}
+
+const saveWhatIType = () => {
+  // Create an object that represents what the new todo task entry will look like
+  let newContent = {
+    id: math.random.toString().replace(“0.”,””),
+    content: inputValue.trim()
+  }
+
+  /* 
+  Make a copy of the current value of todoList. This is because if we do not append/push directly into the current value of todoList. This will prevent unpredicted bugs. To make a copy, we use the spread operator ...
+  */
+  let copy = […todoList]
+
+  // Add the new content into the copy
+  copy.push( newContent )
+
+  // update state
+  setTodoList( copy )
+  setInputValue( “” )
+
+  // You can combine all the code into one line like this
+  setTodoList( [...todoList, {
+        id: math.random.toString().replace(“0.”,””),
+        content: inputValue.trim()
+      }
+    ] )
+  setInputValue( “” )
+}
+
+Const deleteThisTodo = (id) => {
+  setTodoList(
+    todoList.filter( item => item.id != id )
+  )
+}
+```
