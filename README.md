@@ -363,7 +363,7 @@ To do this, we need the to use `display: flex`.
 ```
 
 <a name="flexbox/flexDirection"></a>
-### flex-direction
+### Flex-direction
 Flex-direction determines if your flex container should arrange the content inside as a row or column.
 <br/>
 For example
@@ -393,7 +393,6 @@ When I use `flex-direction: column` , my main axis is the column axis or the Y a
 There are a few properties that can be used like `space-around` , `flex-start`. Do check out the documentation, it is very well written.
 <br/>
 [Link flexbox Documentation](https://www.css-tricks.com/snippets/css/a-guide-to-flexbox/)
-
 <br/>
 For example
 ```html
