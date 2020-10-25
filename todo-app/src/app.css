@@ -10,3 +10,9 @@
     justify-content: space-around; /* in the main axis (y axis), evenly space my content */ 
     align-content: center; /* in the other axis (x axis), center my content */
 }
+
+
+
+.inputBox{
+    width: 80vw;
+}

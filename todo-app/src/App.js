@@ -34,7 +34,7 @@ const App = () => {
   return (
     <div className="thisIsACol" >
       <div className="thisIsARow"  > 
-        <input onChange={displayWhatIType} value={inputValue} />
+        <input className="inputBox" onChange={displayWhatIType} value={inputValue} />
         <button onClick={saveWhatIType} >Save</button>
       </div>
         {
