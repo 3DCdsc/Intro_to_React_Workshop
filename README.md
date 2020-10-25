@@ -582,6 +582,7 @@ We need store the characters in which our user will type and then store those ch
 <br/>
 Therefore, we should intialise our state like
 <br/>
+
 ```js
 const [inputValue , setInputValue] = useState("") //initilize inputValue as an empty string
 const [todoList , setTodoList] = useState([]) //initilize todoList as an empty array
@@ -591,6 +592,7 @@ So whenever, we type something, it gets stored into inputValue and then when we 
 <br/>
 Now for the Reminder content, we do not want to keep manually adding divs as the todoList increases, we can use a loop to assits us.
 <br/>
+
 ```js
 const myComponent = (props) => {
   return(
