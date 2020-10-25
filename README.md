@@ -782,3 +782,7 @@ Let's add the css properties like this
 }
 ```
 <br/>
+<br/>
+We are done! We got the base functionality!
+<br/> <br/>
+<img src="./readmeAssets/finalproduct.gif" width="1000"/>
