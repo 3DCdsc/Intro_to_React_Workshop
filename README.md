@@ -438,3 +438,51 @@ For example
   align-content: center;
 }
 ```
+
+<a name="demo"></a>
+## Demo
+<a name="demo/cleanup"></a>
+## Cleaning up create react app
+First we need to use the create-react-app package to initialize a templated app for us. To do this, open your terminal (mac) or command prompt (windows).
+<br/>
+Change directory to the folder you want to place the application folder in. In this case, let's use the desktop folder.
+<br/>
+To change directory to the desktop folder, run `cd ./desktop`.
+<br/>
+Let's install the create react app template. Run the following commands `npx create-react-app todo-app-demo`
+<br/>
+This will create a folder named todo-app-demo in your desktop folder.
+
+<br/><br/>
+Let's start by cleaning up some files to get started from scratch.
+<br/>
+Delete the following files in the todo-app-demo.
+<br/>
+<img src="./readmeAssets/delete.png" width="600"/>
+Delete the following files:
+<br/>
+  - App.css
+  - App.test.js
+  - index.css
+  - logo.svg
+<br/>
+<img src="./readmeAssets/left.png" width="600"/>
+<br/>
+You should be left with these files.
+<br/><br/>
+Next, we shall clean up the files.
+<br/>
+Opening the file App.js, delete the following lines to change as per the image.
+<img src="./readmeAssets/cleanapp1.png" width="600"/>
+<img src="./readmeAssets/cleanapp2.png" width="600"/>
+
+<br/>
+Opening the file index.js, delete the following lines to change as per the image.
+<img src="./readmeAssets/cleanindex1.png" width="600"/>
+<img src="./readmeAssets/cleanindex2.png" width="600"/>
+<br/><br/>
+Lets run the application. Go back to your terminal and change directory into the todo-app-demo by running `cd ./todo-app-demo`
+<br/>
+To run the application, run `npm run start`.
+
+
