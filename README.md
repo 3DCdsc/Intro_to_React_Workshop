@@ -47,6 +47,10 @@ Basic knowledge on (Be it on python or what not) :
     1. [Components](#react/compoents)
     2. [State](#react/state)
 5. [CSS Flexbox](#flexbox)
+    1. [Display flex](#flexbox/display)
+    2. [Flex-direction](#flexbox/flexDirection)
+    3. [Justify Content](#flexbox/justifyContent)
+    4. [Align Content](#flexbox/alignContent)
 6. [Breakdown of Demo](#demo)
     1. [Cleaning up create-react-app](#demo/cleanup)
     2. [Breaking down structure of html](#demo/structure)
@@ -281,6 +285,7 @@ CSS then assigns a property to the following class.
 ### Components
 The react library are made out of components. Just like how HTML is made up of multiple containters, react uses the same container concept but calls it components insetad.
 <img src="./readmeAssets/reactComponent.png" width="400"/>
+<br/>
 A React Component is a Javascript Function that takes in an object called `props` and return `JSX`.
 <br/>
 You can view props as properties being pass into a component, just like how you pass parameters into a function.
@@ -338,6 +343,98 @@ console.log( currentValueOfState ) // this will print "SUTD"
 
 <a name="flexbox"></a>
 ## CSS Flexbox
-CSS Flexbox are useful bunch of CSS properties that allow webpages to be responsive. Meaning, if the browser changes width or height, the content will adapt accordingly.
+CSS Flexbox are useful bunch of CSS properties that allow webpages to be responsive. Meaning, if the browser changes width or height, the content will adapt accordingly. Flexbox works with the concepts of rows and columns.
+<br/>
+[Link to css flexbox documentation. It contains a detailed writeup on flexbox.](https://www.css-tricks.com/snippets/css/a-guide-to-flexbox/)
 <br/><br/>
-[link to css flexbox documentation!](https://www.css-tricks.com/snippets/css/a-guide-to-flexbox/)
+
+<a name="flexbox/display"></a>
+### Display Flex
+To enable flexbox properties, we first need to enable flex container.
+<br/>
+To do this, we need the to use `display: flex`.
+```html
+<div class="flex" >This will become a flex container</div>
+```
+```css
+.flex{
+  display: flex
+}
+```
+
+<a name="flexbox/flexDirection"></a>
+### flex-direction
+Flex-direction determines if your flex container should arrange the content inside as a row or column.
+<br/>
+For example,
+```html
+<div class="flex" >
+  <div> content 1 </div>
+  <div> content 2 </div>
+  <div> content 3 </div>
+</div>
+```
+```css
+.flex{
+  display: flex;
+  flex-direction: row;
+}
+```
+
+
+<a name="flexbox/justifyContent"></a>
+### Justify Content
+Justify content determines how content should be spaced out in the main axis.
+<br/>
+When I use `flex-direction: row` , my main axis is the row axis or the X axis.
+<br/>
+When I use `flex-direction: column` , my main axis is the column axis or the Y axis.
+<br/>
+There are a few properties that can be used like `space-around` , `flex-start`. Do check out the documentation, it is very well written.
+<br/>
+[Link flexbox Documentation](https://www.css-tricks.com/snippets/css/a-guide-to-flexbox/)
+
+<br/>
+For example,
+```html
+<div class="flex" >
+  <div> content 1 </div>
+  <div> content 2 </div>
+  <div> content 3 </div>
+</div>
+```
+```css
+.flex{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+```
+
+<a name="flexbox/alignContent"></a>
+### Align Content
+Align content acts similiar to justify-content, just that the axis is the opposite.
+<br/>
+When I use `flex-direction: row` , my main axis is the row axis or the X axis. Therefore, `align-content` adjusts the column axis or Y axis.
+<br/>
+When I use `flex-direction: column` , my main axis is the column axis or the Y axis. Therefore, `align-content` adjusts the row axis or X axis.
+<br/>
+There are a few properties that can be used like `space-around` , `flex-start`. Do check out the documentation, it is very well written.
+<br/>
+[Link flexbox Documentation](https://www.css-tricks.com/snippets/css/a-guide-to-flexbox/)
+For example,
+```html
+<div class="flex" >
+  <div> content 1 </div>
+  <div> content 2 </div>
+  <div> content 3 </div>
+</div>
+```
+```css
+.flex{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+}
+```
