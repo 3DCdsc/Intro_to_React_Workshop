@@ -7,7 +7,7 @@ function App() {
   const [ todoList , updateTodoList ] = useState([])
 
   const [ textInputValue , updateTextInputValue ] = useState("")
-  console.log( todoList )
+
   const onChangeTextInput = (e) => {
     updateTextInputValue(e.target.value)
   }

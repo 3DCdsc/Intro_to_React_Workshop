@@ -512,6 +512,7 @@ The image shows how the app will look like. We have 3 main big containers.
 <br/>
 In HTML code
 <br/>
+
 ```html
 <div>
   <div> For the input and save button </div>
@@ -521,6 +522,7 @@ In HTML code
 <br/>
 In React
 <br/>
+
 ```js
 const myComponent = (props) => {
   return(
@@ -593,7 +595,7 @@ const [todoList , setTodoList] = useState([]) //initilize todoList as an empty a
 <br/>
 So whenever, we type something, it gets stored into inputValue and then when we save, it gets stored into todoList.
 <br/>
-Now for the Reminder content, we do not want to keep manually adding divs as the todoList increases, we can use a loop to assits us.
+Now for the Reminder content, we do not want to keep manually adding divs as the todoList increases, we can use a loop to assit us.
 <br/>
 
 ```js
@@ -606,7 +608,7 @@ const myComponent = (props) => {
       </div>
       <div> 
         {
-          todoList.forEach( element =>
+          todoList.map( element =>
             <div>
               <div> {element.content} </div>
               <button/>
@@ -660,7 +662,7 @@ Lets code our the functions
   const saveWhatIType = () => {
     // Create an object that represents what the new todo task entry will look like
     let newContent = {
-      id: math.random.toString().replace("0.",""),
+      id: math.random().toString().replace("0.",""),
       content: inputValue.trim()
     }
   
@@ -701,7 +703,7 @@ After adding the function to your app.js, it should look like
 I would like to bring the focus now to the event handlers on the JSX code
 <br/>
 
-```js
+```html
 <div>
   <div> 
     <input onChange={displayWhatIType} value={inputValue} /> <!--When input is changing (user typing), run displayWhatIType function -->
@@ -731,4 +733,55 @@ I would like to bring the focus now to the event handlers on the JSX code
 
 <a name="demo/css)"></a>
 ## Setting up CSS
+We first need give class names to our JSX elements.
+<br/>
 
+```js
+  return (
+    <div className="thisIsACol">
+      <div className="thisIsARow" > 
+        <input onChange={displayWhatIType} value={inputValue} />
+        <button onClick={saveWhatIType} >Save</button>
+      </div>
+      <div className="thisIsACol"> 
+        {
+          todoList.forEach( (element) =>
+            <div className="thisIsARow">
+              <div> {element.content} </div>
+              <button onClick={()=>deleteThisTodo(element.id)} />
+            </div>
+          )
+        }
+      </div>
+    </div>
+  );
+```
+<br/>
+Now your file looks like this
+<br/>
+<img src="./readmeAssets/classname.png" width="600"/>
+<br/><br/>
+Notice how we split up the containers that should act as a row or column. This means we can code 1 css class with that particular property and apply it anywhere else. This is a design prinipal you should try to apply as often as possible.
+
+<br/><br/>
+Let's create a new css file named `app.css`
+<br/>
+<img src="./readmeAssets/appcssfile.png" width="600"/>
+<br/>
+Let's add the css properties like this
+<br/>
+
+```css
+.thisIsARow{
+    display: flex;  /* enable flex */ 
+    flex-direction: row; /* act as a row */ 
+    justify-content: space-around; /* in the main axis (x axis), evenly space my content */ 
+    align-content: center; /* in the other axis (y axis), center my content */ 
+}
+.thisIsACol{
+    display: flex; /* enable flex */ 
+    flex-direction: row; /* act as a row */ 
+    justify-content: space-around; /* in the main axis (y axis), evenly space my content */ 
+    align-content: center; /* in the other axis (x axis), center my content */
+}
+```
