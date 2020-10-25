@@ -687,7 +687,8 @@ Lets code our the functions
   
   const deleteThisTodo = (id) => {
     setTodoList(
-      todoList.filter( item => item.id != id )
+      todoList.filter( item => item.id != id ) 
+      // filter will iterate over the array and return a new array that passes the condition item.id != id
     )
   }
 ``` 
