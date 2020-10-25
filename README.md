@@ -608,7 +608,10 @@ const myComponent = (props) => {
       </div>
       {
         todoList.map( element =>
-          <div>
+          <div key={element.id} > 
+          /*
+          take note that when mapping over an array and returning JSX, we need a key property which needs to be a unique value. This key is used by React to keep track of component
+          */
             <div> {element.content} </div>
             <button/>
           </div>
@@ -624,7 +627,7 @@ Putting everything into our app.js code as such
 <img src="./readmeAssets/appstate.png" width="600"/>
 <br/>
 
-<a name="demo/event-handler)"></a>
+<a name="demo/event-handler"></a>
 ## Event Handlers
 Now that we have the state and base structure of our React App. We need javascript functions to interact with our state.
 <br/>
@@ -730,7 +733,7 @@ I would like to bring the focus now to the event handlers on the JSX code
     </div>
 ```
 
-<a name="demo/css)"></a>
+<a name="demo/css"></a>
 ## Setting up CSS
 We first need give class names to our JSX elements.
 <br/>
@@ -744,7 +747,7 @@ We first need give class names to our JSX elements.
       </div>
       {
         todoList.map( (element) =>
-          <div className="thisIsARow">
+          <div key={element.id} className="thisIsARow">
             <div> {element.content} </div>
             <button onClick={()=>deleteThisTodo(element.id)} />
           </div>
@@ -787,3 +790,96 @@ Let's add the css properties like this
 We are done! We got the base functionality!
 <br/> <br/>
 <img src="./readmeAssets/finalproduct.gif" width="1000"/>
+
+<a name="demo/seperate-component"></a>
+## Seperating JSX into Components
+To make our code more reusable, we can split our JSX into components and this allows us to reuse these components anywhere else. This reduces repetitive code and makes the codebase modular and easier to maintain.
+<br/><br/>
+Our task now is to make our todo reminder row into a component.
+<br/>
+
+```js
+// make this code
+    <div className="thisIsACol">
+      <div className="thisIsARow" > 
+        <input onChange={displayWhatIType} value={inputValue} />
+        <button onClick={saveWhatIType} >Save</button>
+      </div>
+      {
+        todoList.map( (element) =>
+          <div key={element.id} className="thisIsARow">
+            <div> {element.content} </div>
+            <button onClick={()=>deleteThisTodo(element.id)} />
+          </div>
+        )
+      }
+    </div>
+
+// become this
+<div className="thisIsACol">
+      <div className="thisIsARow" > 
+        <input onChange={displayWhatIType} value={inputValue} />
+        <button onClick={saveWhatIType} >Save</button>
+      </div>
+      {
+        todoList.map( (element) =>
+          <TodoRowComponent/>  // THIS IS A COMPONENT 
+        )
+      }
+    </div>
+```
+<br/>
+But this means that we have to somehow transfer the functions and content into that component.
+<br/>
+This is where props come into the picture. We will be passing the required content and functions through props.
+<br/>
+
+```js
+<div className="thisIsACol">
+  <div className="thisIsARow" > 
+    <input onChange={displayWhatIType} value={inputValue} />
+    <button onClick={saveWhatIType} >Save</button>
+  </div>
+  {
+    todoList.map( (element) =>
+      <TodoRowComponent element={element} deleteThisTodo={deleteThisTodo}  />  
+      // adding properties to the component will pass it as a prop into the array. Remember that a React componenet takes in props and returns JSX
+    )
+  }
+</div>
+```
+<br/><br/>
+We then create a new file named TofoRowComponent.
+<br/>
+
+```js
+import React from 'react' // remember to import react. All components need this as JSX as it is used to after JSX is transformed.
+
+const TodoRowComponent = (props) => {
+
+    let { element , deleteThisTodo } = props  // this is called object destructuring, we use this to directly access object elements.
+
+    /*
+      you can view props as an object
+
+      props = {
+        element: element data that was passed in ,
+        deleteThisTodo: the function that was passed in
+      }
+
+    */
+
+    return(
+        <div key={element.id} className="thisIsARow">
+            <div> {element.content} </div>
+            <button onClick={()=>deleteThisTodo(element.id)} />
+        </div>
+    )
+}
+
+export default TodoRowComponent // remmeber to export the componenet to be used in the app.js file
+```
+<br/><br/>
+
+Your app.js file should look like this now
+<img src="./readmeAssets/seperate.png" width="600"/>
