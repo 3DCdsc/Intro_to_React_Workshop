@@ -769,13 +769,13 @@ Lets code our the functions
 Going back to our react app, we need to add these event handlers into our app.js file. We also need to add the onClick and onChange attributes to to the buttons and input components.
 <br/>
 We also need to `import React, { useState } from 'react';`
-<br/>
+<br/><br/>
 What's the difference between `import React from 'react'` and `import {useState} from 'react'`
-<br/>
+<br/><br/>
 When the import has `{}` , it means that whatever is inside the curly braces was not exported as default and therefore needs to be named. Therefore it is called a named import.
 <br/>
 non default export looks like `export const helloWorld = "hello world" `
-<br/>
+<br/><br/>
 Whereas without `{}` , it means that the export is default and therefore doesn't need to be named.
 <br/>
 Default export looks like `export default "hello world" `
