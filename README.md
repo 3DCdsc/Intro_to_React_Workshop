@@ -161,12 +161,15 @@ def thisIsAFunction ( paramOne ):
 
 // Function Expression
 // Function is loaded when the line is reached
+
+// The below function is called a Arrow Function (I guess because of the => )
 const thisIsAFunction = ( paramOne ) => {
   return( "hello world" )
 }
 
 const thisIsAFunction = ( paramOne ) => "hello world"
-
+// Notice how this version of the Arrow Function, doesn't have the curly braces {}
+// Without the curly braces, the function automatically return whatever after that. In this case, the function automatically returns "hello world"
 const thisIsAFunction = function( paramOne ){
   return("hello world)
 }
