@@ -753,7 +753,7 @@ We first need give class names to our JSX elements.
   );
 ```
 <br/>
-Now your file looks like this
+Remember to also import your css file as shown below.
 <br/>
 <img src="./readmeAssets/classname.png" width="600"/>
 <br/><br/>
