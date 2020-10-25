@@ -9,6 +9,7 @@ Basic knowledge on (Be it on python or what not) :
 - Loops
 
 # Set-up
+Setup won't be required as we will be going through mostly slide base, then proceed to a demo if time allows for it.
 - ## NodeJS 
   - https://nodejs.org/en/  (Windows and MacOS alike)
   - For homebrew users (macOS)
@@ -18,7 +19,6 @@ Basic knowledge on (Be it on python or what not) :
     - Run: npm --version or node --version
     - npm version 6.14.8 or node version 14.12.0 respectively. (Any later version will work fine as well)
 - ## Create-React-App
-  - I will go through the set up process at the start too but please try downloading it on your own first.
   - Steps are as follows:
     1. Open your terminal (macOS) or command prompt (windows)
     2. cd to your desktop or any folder you prefer by using " cd ./desktop "
