@@ -536,6 +536,7 @@ We then can further break down into the individual input and save button. Follow
 <br/>
 In HTML code
 <br/>
+
 ```html
 <div>
   <div> 
@@ -551,6 +552,7 @@ In HTML code
 <br/>
 In React
 <br/>
+
 ```js
 const myComponent = (props) => {
   return(
