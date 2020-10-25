@@ -632,7 +632,7 @@ It then returns an array containing 2 elements.
 1. The current state of the
 <br/>
 2. A function to update the state
-<br/>
+<br/><br/>
 So in the case of `const [inputValue , setInputValue] = useState("")` ,
 <br/>
 We are telling React, to initialize `inputValue` as an `""` in which `useState` will return 2 values, the variable name of the state and a function `setInputValue` that updates the `inputValue`.
@@ -681,13 +681,19 @@ Putting everything into our app.js code as such
 
 <a name="demo/event-handler"></a>
 ## Event Handlers
-Now that we have the state and base structure of our React App. We need javascript functions to interact with our state.
+Now that we have the state and base structure of our React App. We need javascript functions to interact with our state. These functions are called event handlers.
 <br/>
+A event handler is basically a function that is invoked/run when the user interacts with a webpage. Be it a click or keystrokes or etc...
+<br/><br/>
 Let's breakdown what kind of functions we need
 <br/><br/>
-We need 1 function to take the characters our user type and update the `inputValue` value.
+Firstly, we need 1 function to take the characters our user type and update the `inputValue` value.
 <br/><br/>
-Whenever our user click save, we need 1 functon to then save the `inputValue` characters into our  `todoList` array. Don't forget we also need to empty out `inputValue` characters so that the user can start typing on a clean input box again. Another thing to take note is that when storing the texts, we need a unique identifier so that we know which task to delete even if the 2 tasks have the same text content. For the purposes of this demo, we will use javascript's build in random function `math.random.toString().replace(“0.”,””)`. However do not use this in production, please use a proper uuid library like [uuid](https://www.npmjs.com/package/uuid).
+Secondly, Whenever our user click save, we need 1 functon to then save the `inputValue` characters into our  `todoList` array. 
+<br/>
+Don't forget we also need to empty out `inputValue` characters so that the user can start typing on a clean input box again. 
+<br/>
+Another thing to take note is that when storing the texts, we need a unique identifier so that we know which task to delete even if the 2 tasks have the same text content. For the purposes of this demo, we will use javascript's build in random function `math.random.toString().replace(“0.”,””)`. However do not use this in production, please use a proper uuid library like [uuid](https://www.npmjs.com/package/uuid).
 <br/><br/>
 So our `todoList` state will store text like this
 <br/><br/>
@@ -701,6 +707,8 @@ todoList = [
 ```
 <br/><br/>
 Next, we need a function to then delete the correct todo task and then update `todoList` with the updated todo list.
+<br/>
+Making use of the unique id, the delete function will take the id as a parameter then compare it with all the ids currently in the todoList. If they are the same, delete it and update todoList.
 <br/><br/>
 Lets code our the functions
 <br/>
@@ -709,7 +717,7 @@ Lets code our the functions
   const displayWhatIType = ( e ) => {
     // Notice how this takes in a e parameter.
     // It is actually the event object which your browser automatically passes into the function.
-    setInputValue( e.target.value )
+    setInputValue( e.target.value ) // e.target.value is how you access what the user has typed.
   }
   
   const saveWhatIType = () => {
@@ -720,18 +728,19 @@ Lets code our the functions
     }
   
     /* 
-    Make a copy of the current value of todoList. This is because if we do not append/push directly into the current value of todoList. This will prevent unpredicted bugs. To make a copy, we use the spread operator ...
+    Make a copy of the current value of todoList. This is because we do not append/push directly into the current value of todoList. This will prevent unpredicted bugs. To make a copy, we use the spread operator ...
     */
     let copy = [...todoList]
   
     // Add the new content into the copy
     copy.push( newContent )
   
-    // update state
+    // update todoList
     setTodoList( copy )
+    // update inputValue
     setInputValue( "" )
   
-    // You can combine all the code into one line like this
+    // You can combine all the code into a more compact version like this
     setTodoList( [...todoList, {
           id: math.random.toString().replace("0.",""),
           content: inputValue.trim()
@@ -743,12 +752,28 @@ Lets code our the functions
   const deleteThisTodo = (id) => {
     setTodoList(
       todoList.filter( item => item.id != id ) 
-      // filter will iterate over the array and return a new array that passes the condition item.id != id
+      /* 
+          filter will iterate over the array and return a new array that passes the condition, item.id != id
+          basically, filter will compare each item's id with the id of the todo reminder we want to delete.
+          As long as the 2 ids are not the same (!=) , then filter will take the element and put it into a new array.
+      */
     )
   }
 ``` 
 <br/>
 Going back to our react app, we need to add these event handlers into our app.js file. We also need to add the onClick and onChange attributes to to the buttons and input components.
+<br/>
+We also need to `import React, { useState } from 'react';`
+<br/>
+What's the difference between `import React from 'react'` and `import {useState} from 'react'`
+<br/>
+When the import has `{}` , it means that whatever is inside the curly braces was not exported as default and therefore needs to be named. Therefore it is called a named import.
+<br/>
+non default export looks like `export const helloWorld = "hello world" `
+<br/>
+Whereas without `{}` , it means that the export is default and therefore doesn't need to be named.
+<br/>
+Default export looks like `export default "hello world" `
 <br/><br/>
 After adding the function to your app.js, it should look like
 <br/>
@@ -760,23 +785,29 @@ I would like to bring the focus now to the event handlers on the JSX code
 ```html
 <div>
   <div> 
-    <input onChange={displayWhatIType} value={inputValue} /> <!--When input is changing (user typing), run displayWhatIType function -->
-                                                  <!--input then displays whatever is in the value attribute (in this case,inputValue) -->
-    <button onClick={saveWhatIType} >Save</button> <!-- On click on save button, run saveWhatIType function -->
+    <!--When input is changing (user typing), run displayWhatIType function -->
+    <input onChange={displayWhatIType} value={inputValue} /> 
+    <!-- Input then displays whatever is in the value attribute (in this case,inputValue) -->
+
+    <button onClick={saveWhatIType} >Save</button> 
+    <!-- On click on save button, run saveWhatIType function -->
   </div>
   <div> 
     {
       todoList.map( element =>
-        <div>
+        <div key={element.id} >
           <div> {element.content} </div>
           <button onClick={()=>deleteThisTodo(element.id)} />
           <!-- 
             On click on delete button, run deleteThisTodo function.
-            However, remember we need to get the unique id of the todo task. 
-            To do this we need to pass the parameter element.id
+            However, remember we need to pass the unique id of the todo task. 
+            To do this we need to pass the parameter element.id.
+
             But we can't type it out as onClick={deleteThisTodo(element.id)}
+
             This will cause the deleteThisTodo function to be invoked/run when the page loads.
-            So to avoid that, we use an arrow function to create a new function that when run, runs the deleteThisTodo function.
+
+            So to avoid that, we use an arrow function to create a new function that when it runs, it will then run the deleteThisTodo function.
           -->
         </div>
       )
@@ -787,9 +818,18 @@ I would like to bring the focus now to the event handlers on the JSX code
 
 <a name="demo/css"></a>
 ## Setting up CSS
-We first need give class names to our JSX elements.
+We first need give class names to our JSX elements. 
 <br/>
-
+Remember class names is like labelling the HTML tag.
+<br/>
+CSS will then use the class names to identify the HTML block to assign properties to.
+<br/>
+<br/><br/>
+We will split up the containers that should act as a row or column. This means we can code 1 css class with that particular property and apply it anywhere else. This is a design prinipal you should try to apply as often as possible.
+<br/><br/>
+Remember to also import your css file as shown below.
+<br/>
+<br/><br/>
 ```js
   return (
     <div className="thisIsACol">
@@ -808,14 +848,9 @@ We first need give class names to our JSX elements.
     </div>
   );
 ```
-<br/>
-Remember to also import your css file as shown below.
-<br/>
-<img src="./readmeAssets/classname.png" width="600"/>
-<br/><br/>
-Notice how we split up the containers that should act as a row or column. This means we can code 1 css class with that particular property and apply it anywhere else. This is a design prinipal you should try to apply as often as possible.
 
-<br/><br/>
+<img src="./readmeAssets/classname.png" width="600"/>
+
 Let's create a new css file named `app.css`
 <br/>
 <img src="./readmeAssets/appcssfile.png" width="600"/>
@@ -837,9 +872,8 @@ Let's add the css properties like this
     align-content: center; /* in the other axis (x axis), center my content */
 }
 ```
-<br/>
-<br/>
-We are done! We got the base functionality!
+<br/><br/>
+We are done! We got the basic functionality!
 <br/> <br/>
 <img src="./readmeAssets/finalproduct.gif" width="1000"/>
 
