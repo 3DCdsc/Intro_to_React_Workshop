@@ -223,7 +223,6 @@ oneToTen.forEach( eachElement => console.log(eachElement) )
 
 // Another method to reiterate over an array is
 oneToTen.map( (eachElement, eachIndex)=> console.log(eachElement, eachIndex) )
-// .map gives access to each element's index
 ```
 
 <a name="HTML-CSS"></a>
