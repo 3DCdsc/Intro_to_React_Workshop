@@ -565,6 +565,7 @@ const myComponent = (props) => {
     </div>
   )
 }
+```
 <br/>
 To add this into our app, let's open the app.js file and add in the react code.
 <br/>
@@ -587,19 +588,44 @@ const [todoList , setTodoList] = useState([]) //initilize todoList as an empty a
 ```
 <br/>
 So whenever, we type something, it gets stored into inputValue and then when we save, it gets stored into todoList.
+<br/>
+Now for the Reminder content, we do not want to keep manually adding divs as the todoList increases, we can use a loop to assits us.
+<br/>
+```js
+const myComponent = (props) => {
+  return(
+    <div>
+      <div> 
+        <input/>
+        <button>Save</button>
+      </div>
+      <div> 
+        {
+          todoList.forEach( element =>
+            <div>
+              <div> {element.content} </div>
+              <button/>
+            </div>
+          )
+        }
+      </div>
+    </div>
+  )
+}
+```
 
 <a name="demo/event-handler)"></a>
 ## Event Handlers
 Now that we have the state and base structure of our React App. We need javascript functions to interact with our state.
 <br/>
 Let's breakdown what kind of functions we need
-<br/>
+<br/><br/>
 We need 1 function to take the characters our user type and update the `inputValue` value.
-<br/>
+<br/><br/>
 Whenever our user click save, we need 1 functon to then save the `inputValue` characters into our  `todoList` array. Don't forget we also need to empty out `inputValue` characters so that the user can start typing on a clean input box again. Another thing to take note is that when storing the texts, we need a unique identifier so that we know which task to delete even if the 2 tasks have the same text content. For the purposes of this demo, we will use javascript's build in random function `math.random.toString().replace(“0.”,””)`. However do not use this in production, please use a proper uuid library like [uuid](https://www.npmjs.com/package/uuid).
-<br/>
+<br/><br/>
 So our `todoList` state will store text like this
-<br/>
+<br/><br/>
 ```js
 todoList = [
   {
@@ -608,50 +634,86 @@ todoList = [
   }
 ]
 ```
-<br/>
+<br/><br/>
 Next, we need a function to then delete the correct todo task and then update `todoList` with the updated todo list.
 <br/><br/>
 Lets code our the functions
 <br/>
 
 ```js
-const displayWhatIType = ( e ) => {
-  // Notice how this takes in a e parameter.
-  // It is actually the event object which your browser automatically passes into the function.
-  setInputValue( e.target.value )
-}
-
-const saveWhatIType = () => {
-  // Create an object that represents what the new todo task entry will look like
-  let newContent = {
-    id: math.random.toString().replace(“0.”,””),
-    content: inputValue.trim()
+  const displayWhatIType = ( e ) => {
+    // Notice how this takes in a e parameter.
+    // It is actually the event object which your browser automatically passes into the function.
+    setInputValue( e.target.value )
   }
-
-  /* 
-  Make a copy of the current value of todoList. This is because if we do not append/push directly into the current value of todoList. This will prevent unpredicted bugs. To make a copy, we use the spread operator ...
-  */
-  let copy = […todoList]
-
-  // Add the new content into the copy
-  copy.push( newContent )
-
-  // update state
-  setTodoList( copy )
-  setInputValue( “” )
-
-  // You can combine all the code into one line like this
-  setTodoList( [...todoList, {
-        id: math.random.toString().replace(“0.”,””),
-        content: inputValue.trim()
-      }
-    ] )
-  setInputValue( “” )
-}
-
-Const deleteThisTodo = (id) => {
-  setTodoList(
-    todoList.filter( item => item.id != id )
-  )
-}
+  
+  const saveWhatIType = () => {
+    // Create an object that represents what the new todo task entry will look like
+    let newContent = {
+      id: math.random.toString().replace("0.",""),
+      content: inputValue.trim()
+    }
+  
+    /* 
+    Make a copy of the current value of todoList. This is because if we do not append/push directly into the current value of todoList. This will prevent unpredicted bugs. To make a copy, we use the spread operator ...
+    */
+    let copy = [...todoList]
+  
+    // Add the new content into the copy
+    copy.push( newContent )
+  
+    // update state
+    setTodoList( copy )
+    setInputValue( "" )
+  
+    // You can combine all the code into one line like this
+    setTodoList( [...todoList, {
+          id: math.random.toString().replace("0.",""),
+          content: inputValue.trim()
+        }
+      ] )
+    setInputValue( "" )
+  }
+  
+  const deleteThisTodo = (id) => {
+    setTodoList(
+      todoList.filter( item => item.id != id )
+    )
+  }
+``` 
+<br/>
+Going back to our react app, we need to add these event handlers into our app.js file. We also need to add the onClick and onChange attributes to to the buttons and input components.
+<br/><br/>
+After adding the function to your app.js, it should look like
+<br/>
+<img src="./readmeAssets/eventhandler.png" width="600"/>
+<br/>
+I would like to bring the focus now to the event handlers on the JSX code
+<br/>
+```js
+<div>
+  <div> 
+    <input onChange={displayWhatIType} value={inputValue} /> <!--When input is changing (user typing), run displayWhatIType function -->
+                                                  <!--input then displays whatever is in the value attribute (in this case,inputValue) -->
+    <button onClick={saveWhatIType} >Save</button> <!-- On click on save button, run saveWhatIType function -->
+  </div>
+  <div> 
+    {
+      todoList.forEach( element =>
+        <div>
+          <div> {element.content} </div>
+          <button onClick={()=>deleteThisTodo(element.id)} />
+          <!-- 
+            On click on delete button, run deleteThisTodo function.
+            However, remember we need to get the unique id of the todo task. 
+            To do this we need to pass the parameter element.id
+            But we can't type it out as onClick={deleteThisTodo(element.id)}
+            This will cause the deleteThisTodo function to be invoked/run when the page loads.
+            So to avoid that, we use an arrow function to create a new function that when run, runs the deleteThisTodo function.
+          -->
+        </div>
+      )
+    }
+</div>
+    </div>
 ```
