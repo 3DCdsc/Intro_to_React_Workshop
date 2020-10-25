@@ -327,7 +327,7 @@ const thisIsAComponent = ( props ) => {
 <a name="react/state"></a>
 ### State
 A state is like a temporary storage on your browser. It can be viewed like a temporary database.
-<br>/<br/>
+<br/><br/>
 React uses a function called `useState` to intialize a state. `useState` is one of the many functions called react hooks.
 <br/>
 useState function takes in the initial state of the state. It returns an array containing the current state and a function to update the state.
@@ -516,7 +516,7 @@ The image shows how the app will look like. We have 3 main big containers.
 1 inner container that should behave like a row for the input and save componenets.
 <br/>
 1 inner container that should behave like a column for the rows of reminder row components.
-<br/>
+<br/><br/>
 In HTML code
 <br/>
 
@@ -592,6 +592,31 @@ We need to store 2 things.
 <br/>
 We need store the characters in which our user will type and then store those characters into a list or array.
 <br/>
+Then how should we store the text and the list of todo reminders? For illustration purposes,
+<br/>
+
+```js
+// For the text that the user types in we can just simply store it as a string.
+// Something like,
+let inputValue = "this variable will contain whatever the user type"
+
+// But for the todoList, should we just store a bunch of strings in an array. 
+// Something like,
+let todoList = [ "todo1" , "todo2", "todo3" ]
+/* Then when we delete it, we can just compare if the text of the todo reminder is the same as the one I want to delete then we can delete it */
+/* This will work but will introduce an issue. What if 2 todo reminders have the same text? Which one to delete? */
+
+//Therefore we need a unique identifier for each todo reminder.
+//Something like,
+let todolist = [
+  {
+    id: "SOME KIND OF UNIQUE INDENTIFIER",
+    content: "THE TODO REMINDER TEXT"
+  }
+]
+```
+<br/>
+<br/>
 Therefore, we should intialise our state like
 <br/>
 
@@ -600,9 +625,23 @@ const [inputValue , setInputValue] = useState("") //initilize inputValue as an e
 const [todoList , setTodoList] = useState([]) //initilize todoList as an empty array
 ```
 <br/>
-So whenever, we type something, it gets stored into inputValue and then when we save, it gets stored into todoList.
+Take note that `useState` takes in the initial state you want your state to be. 
 <br/>
-Now for the Reminder content, we do not want to keep manually adding divs as the todoList increases, we can use a loop to assit us.
+It then returns an array containing 2 elements.
+<br/>
+1. The current state of the
+<br/>
+2. A function to update the state
+<br/>
+So in the case of `const [inputValue , setInputValue] = useState("")` ,
+<br/>
+We are telling React, to initialize `inputValue` as an `""` in which `useState` will return 2 values, the variable name of the state and a function `setInputValue` that updates the `inputValue`.
+<br/>
+So whenever, we type something, it gets stored into inputValue and then when we save, it gets stored into todoList.
+<br/><br/>
+Now with state set up, we do not want to keep manually adding divs as the todoList array gets updated with more elements. 
+<br/>
+Therefore, we can use a loop to assit us.
 <br/>
 
 ```js
@@ -614,11 +653,17 @@ const myComponent = (props) => {
         <button>Save</button>
       </div>
       {
+
+        /*
+          1.  Take note that we need to use .map and NOT .forEach
+              This is because forEach DOES NOT return an array as it loops over the array.
+
+          2.  Take note that when mapping over an array and returning JSX, we need a key property which
+              needs to be a unique value. This key is used by React to keep track of component
+        */
+
         todoList.map( element =>
-          <div key={element.id} > 
-          /*
-          take note that when mapping over an array and returning JSX, we need a key property which needs to be a unique value. This key is used by React to keep track of component
-          */
+          <div key={element.id}> 
             <div> {element.content} </div>
             <button/>
           </div>
