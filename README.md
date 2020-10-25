@@ -459,6 +459,7 @@ Let's start by cleaning up some files to get started from scratch.
 Delete the following files in the todo-app-demo.
 <br/>
 <img src="./readmeAssets/delete.png" width="600"/>
+<br/>
 Delete the following files:
 <br/>
   - App.css
