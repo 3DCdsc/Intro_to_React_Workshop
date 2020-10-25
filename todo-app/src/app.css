@@ -1,28 +1,12 @@
-body{
-    padding:0;
-    margin: 0;
+.thisIsARow{
+    display: flex;  /* enable flex */ 
+    flex-direction: row; /* act as a row */ 
+    justify-content: space-between; /* in the main axis (x axis), evenly space my content */ 
+    align-content: center; /* in the other axis (y axis), center my content */ 
 }
-.App{
-    width: 100vw;
-    height: 10vh;
-    text-align: center;
-    margin: 10px;
-}
-
-.flex-row-spacearound-center{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-content: center;
-    align-items: center;
-}
-
-.textInput{
-    width: 80vw;
-}
-
-.todo-item{
-    width:100vw;
-    height: 10vh;
-    text-align: center;
+.thisIsACol{
+    display: flex; /* enable flex */ 
+    flex-direction: column; /* act as a row */ 
+    justify-content: space-around; /* in the main axis (y axis), evenly space my content */ 
+    align-content: center; /* in the other axis (x axis), center my content */
 }

@@ -58,7 +58,7 @@ Setup won't be required as we will be going through mostly slide base, then proc
     4. [Event Handlers](#demo/event-handler)
     5. [Setting up CSS](#demo/css)
     6. [Seperating Components](#demo/seperate-component)
-6. [Exploration](#explore)
+    6. [What can be improved](#demo/improvements)
 
 <a name="how-web-works"></a>
 ## How the Web Works
@@ -883,3 +883,14 @@ export default TodoRowComponent // remmeber to export the componenet to be used 
 
 Your app.js file should look like this now
 <img src="./readmeAssets/seperate.png" width="600"/>
+
+
+<a name="demo/improvements"></a>
+## What else can be done
+Now that we got basic functionality done. What else can we improve? Take a look at this
+<br/><br/>
+<img src="./readmeAssets/outofline.png" width="600"/>
+<br/>
+If our todo reminder is not the same length, the delete button does not line up. What do you think is causing this? (Hint: it is a css flexbox problem)
+<br/><br/>
+Another thing, can we somehow make the input fill up more width? (Hint: It is also a CSS property, it is called width)

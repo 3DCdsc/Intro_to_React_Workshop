@@ -1,50 +1,58 @@
-import React, {useState} from 'react';
-import TodoTaskRow from './components/TodoTaskRow';
-import "./app.css";
+import React , {useState} from 'react'; // import useState
+import "./app.css"; //import your css file!!
+import TodoRowComponent from './TodoRowComponent'; // import your todo component
 
-function App() {
+const App = () => {
 
-  const [ todoList , updateTodoList ] = useState([])
+  const [inputValue , setInputValue] = useState("") //initilize inputValue as an empty string
+  const [todoList , setTodoList] = useState([]) //initilize todoList as an empty array
 
-  const [ textInputValue , updateTextInputValue ] = useState("")
-
-  const onChangeTextInput = (e) => {
-    updateTextInputValue(e.target.value)
+  const displayWhatIType = ( e ) => {
+    console.log(e.target.value)
+    setInputValue( e.target.value )
   }
-  const onClickSubmitButton = () => {
-    updateTodoList(
-      [...todoList, 
-        {
-          id: Math.random().toString().replace("0.", "") ,
-          content: textInputValue
-        }
-      ]
+  
+  const saveWhatIType = () => {
+    console.log("rans")
+    let newContent = {
+      id: Math.random().toString().replace("0.",""),
+      content: inputValue.trim()
+    }
+  
+    let copy = [...todoList]
+    copy.push( newContent )
+    setTodoList( copy )
+    setInputValue( "" )
+  }
+  
+  const deleteThisTodo = (id) => {
+    setTodoList(
+      todoList.filter( item => item.id != id )
     )
-    updateTextInputValue("")
-  }
-  const onClickDeleteButton = (id) => {
-    console.log(id)
-    updateTodoList(todoList.filter(element=>element.id != id))
   }
 
   return (
-    <div className="App">
-      <div className="flex-row-spacearound-center" >
-        <input className="textInput" value={textInputValue} onChange={ onChangeTextInput } />
-        <button onClick={onClickSubmitButton} > Submit </button>
+    <div className="thisIsACol" >
+      <div className="thisIsARow"  > 
+        <input onChange={displayWhatIType} value={inputValue} />
+        <button onClick={saveWhatIType} >Save</button>
       </div>
-      {
-        todoList.map(element =>
-          // <div key={element.id} className="flex-row-spacearound-center todo-item" >
-          //   <div> {element.content} </div>
-          //   <button onClick={()=>{onClickDeleteButton(element.id)}} > Delete </button>
-          // </div>
-          <TodoTaskRow  onClickDeleteButton={onClickDeleteButton} element={element} />
-        )
-      }
-
+        {
+          todoList.map( element =>
+            <TodoRowComponent element={element} deleteThisTodo={deleteThisTodo}  />  
+          )
+        }
     </div>
   );
 }
-
 export default App;
+
+
+
+
+
+
+
+
+
+
