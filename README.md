@@ -692,6 +692,7 @@ After adding the function to your app.js, it should look like
 <br/>
 I would like to bring the focus now to the event handlers on the JSX code
 <br/>
+
 ```js
 <div>
   <div> 
