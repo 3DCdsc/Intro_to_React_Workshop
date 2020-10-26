@@ -8,12 +8,10 @@ const App = () => {
   const [todoList , setTodoList] = useState([]) //initilize todoList as an empty array
 
   const displayWhatIType = ( e ) => {
-    console.log(e.target.value)
     setInputValue( e.target.value )
   }
   
   const saveWhatIType = () => {
-    console.log("rans")
     let newContent = {
       id: Math.random().toString().replace("0.",""),
       content: inputValue.trim()
